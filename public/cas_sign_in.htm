@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://cas.byu.edu/cas/login -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Brigham Young University Sign-in Service</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./cas_sign_in_files/cas/js/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./cas_sign_in_files/cas/js/jquery/1.8.5/jquery-ui.min.js"></script>
+	
+    <link rel="shortcut icon" href="./cas_sign_in_files/cas/images/favicon.ico">
+    <link rel="stylesheet" media="all and (min-width: 1px) and (max-width: 550px)" href="./cas_sign_in_files/cas/css/handheld.css">
+    <link rel="stylesheet" media="all and (min-width: 550px)" href="./cas_sign_in_files/cas/css/style.css">
+    <link rel="stylesheet" media="all" href="./cas_sign_in_files/cas/css/application.css">
+    
+    <script type="text/javascript" src="./cas_sign_in_files/cas/js/cas.js"></script>
+    <script type="text/javascript" src="./cas_sign_in_files/cas/js/modernizr/modernizr.custom.js"></script>
+    
+</head>
+<body>
+    <!--Content-->
+    <div id="main" class="content" role="main">
+        <h2><div id="BYU"></div><!--img src="/cas/images/BYUBar.png;jsessionid=AA3FF86C018915170931017688E796C0" alt="BYU Brigham Young University" /--></h2>
+
+        <form id="credentials" action="https://cas.byu.edu/cas/login;jsessionid=AA3FF86C018915170931017688E796C0" method="post">
+
+            <h1>Sign In</h1>
+            <fieldset id="inputarea">
+                <div class="row">
+                    <label for="netid" id="labelnetid"><span class="accesskey">N</span>et ID:</label>
+
+                    <input id="netid" name="username" tabindex="1" accesskey="n" type="text" value="" autocomplete="true">
+
+                </div>
+                <div class="row">
+                    <label for="password" id="labelpassword"><span class="accesskey">P</span>assword:</label>
+
+                    <input id="password" name="password" tabindex="2" accesskey="p" type="password" value="" autocomplete="true">
+                </div>
+                <div id="warngroup" class="row">
+                    <input name="warn" value="true" id="warn" tabindex="3" accesskey="w" type="checkbox">
+                    <label for="warn" id="warnlabel"><span class="accesskey">W</span>arn me before signing me into other sites.</label>
+                </div>
+                <input type="hidden" name="execution" value="e1s1">
+                <input type="hidden" name="lt" value="LT-88093-foJ4dpvGiN0AykaB2LCyTMkCpsNOs3">
+                <input type="hidden" name="_eventId" value="submit">
+                <input type="submit" class="submit" tabindex="4" value="">
+            </fieldset>
+        </form>
+        <div id="links">
+            <a href="https://y.byu.edu/ae/prod/authentication/cgi/findNetId.cgi" id="forgot">Forgot your Net ID or password?</a>
+            <br>
+            <a href="https://y.byu.edu/ae/prod/person/cgi/createNetId.cgi" id="create">Create a Net ID</a>
+        </div>
+        <div id="security" class="content" role="main">
+            <div id="lock"></div>
+            <p><strong>Security:</strong> BYU protects personal information by restricting network access to individuals with an
+                authorized username and password. The username is a unique, personal network identifier called a Net ID
+                and is assigned to each BYU patron.</p>
+
+            <p>For security reasons, please sign out and Exit your web browser when you are finished accessing authenticated services!</p>
+        </div>
+
+    </div>
+</body>
+</html>
