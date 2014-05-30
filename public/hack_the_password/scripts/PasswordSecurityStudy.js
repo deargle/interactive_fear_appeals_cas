@@ -53,50 +53,51 @@ var PasswordSecurityStudy = Class.extend({
                 ');
             }
 
+            
             this.remoteRequest = $.ajax({
-                'url': '/api/passwordsecuritystudy/getTip/tipType:'+tipType+'/',
-                'type': 'post',
+                'url': '/api/getTip/password/'+encodeURIComponent(password)+'/tipType/'+tipType,
+                'type': 'get',
                 'dataType': 'json',
-                'data': 'password='+encodeURIComponent(password),
                 'success': function(data) {
-                    if(data.status == 'success') {
-                        if(data.response.status == 'success') {
-                            if(data.response.passwordStrength != null) {
-                                // Create the password strength meter if necessary
-                                if(tipContent.find('.passwordStrengthBarWrapper').length == 0) {
-                                    tipContent.find('.text').before('\
-                                        <p class="passwordStrengthText analyzing">Analyzing</p><div class="passwordStrengthBarWrapper"><div class="passwordStrengthBar"></div></div>\
-                                    ');
-                                }
+                    if (data != null) {
+                        if(data.status == 'success') {
+                            if(data.response.status == 'success') {
+                                if(data.response.passwordStrength != null) {
+                                    // Create the password strength meter if necessary
+                                    if(tipContent.find('.passwordStrengthBarWrapper').length == 0) {
+                                        tipContent.find('.text').before('\
+                                            <p class="passwordStrengthText analyzing">Analyzing</p><div class="passwordStrengthBarWrapper"><div class="passwordStrengthBar"></div></div>\
+                                        ');
+                                    }
 
-                                var color = 'red';
-                                for(var key in self.colors) {
-                                    if(data.response.passwordStrength > key) {
-                                        color = self.colors[key];
+                                    var color = 'red';
+                                    for(var key in self.colors) {
+                                        if(data.response.passwordStrength > key) {
+                                            color = self.colors[key];
+                                        }
+                                    }
+                                    tipContent.find('.passwordStrengthBar').animate({
+                                        'width': data.response.passwordStrength + '%',
+                                        'background-color': color
+                                    }, function() {
+
+                                    });
+                                    tipContent.find('.passwordStrengthText').removeClass('analyzing').html('<b>'+data.response.passwordStrengthText+'</b>');
+
+                                    // Add text if it is present
+                                    if(data.response.text != null) {
+                                        tipContent.find('.text').html(data.response.text);
+                                    }
+                                    else {
+                                        tipContent.find('.text').empty();
                                     }
                                 }
-                                tipContent.find('.passwordStrengthBar').animate({
-                                    'width': data.response.passwordStrength + '%',
-                                    'background-color': color
-                                }, function() {
-                                    
-                                });
-                                tipContent.find('.passwordStrengthText').removeClass('analyzing').html('<b>'+data.response.passwordStrengthText+'</b>');
-
-                                // Add text if it is present
-                                if(data.response.text != null) {
+                                else if(data.response.text != null) {
                                     tipContent.find('.text').html(data.response.text);
                                 }
-                                else {
-                                    tipContent.find('.text').empty();
-                                }
-                            }
-                            else if(data.response.text != null) {
-                                tipContent.find('.text').html(data.response.text);
                             }
                         }
                     }
-
                 }
             });
         }

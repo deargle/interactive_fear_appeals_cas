@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://cas.byu.edu/cas/login -->
+<!--<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en">-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="resource-type" content="document">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Brigham Young University Sign-in Service</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <script type="text/javascript" src="/cas/js/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/cas/js/jquery/1.8.5/jquery-ui.min.js"></script>-->
+
+    <link href="/hack_the_password/phramewrk/styles/phramewrk.css" rel="stylesheet" type="text/css">
+	
+    <!-- CAS -->
+    <link rel="shortcut icon" href="/cas/images/favicon.ico">
+    <link rel="stylesheet" media="all and (min-width: 1px) and (max-width: 550px)" href="/cas/css/handheld.css">
+    <link rel="stylesheet" media="all and (min-width: 550px)" href="/cas/css/style.css">
+    <link rel="stylesheet" media="all" href="/cas/css/application.css">
+    
+<!--    <script type="text/javascript" src="/cas/js/cas.js"></script>
+    <script type="text/javascript" src="/cas/js/modernizr/modernizr.custom.js"></script>-->
+    
+    <!-- Password analysis -->
+    <link href="/hack_the_password/phramewrk/styles/forms.css" rel="stylesheet" type="text/css">
+    <link href="/hack_the_password/styles/site.css" rel="stylesheet" type="text/css">
+    
+    <script src="/hack_the_password/phramewrk/scripts/jQuery.js" type="text/javascript" language="javascript"></script>
+    <script src="/hack_the_password/phramewrk/scripts/Class.js" type="text/javascript" language="javascript"></script>
+    <script src="/hack_the_password/phramewrk/scripts/Form.js" type="text/javascript" language="javascript"></script>
+    <script src="/hack_the_password/phramewrk/scripts/Phramewrk.js" type="text/javascript" language="javascript"></script>
+    <script src="/hack_the_password/scripts/PasswordSecurityStudy.js" type="text/javascript" language="javascript"></script>
+    
+    <!-- My Overrides -->
+    <link rel="stylesheet" media="all" href="/styles/mystyles.css">
+    
+</head>
+<body>
+    <!--Content-->
+    <div id="main" class="content" role="main">
+
+        <h2><div id="BYU"></div><!--img src="/cas/images/BYUBar.png;jsessionid=AA3FF86C018915170931017688E796C0" alt="BYU Brigham Young University" /--></h2>
+        <form id="updatePasswordForm" class="form" action="https://null" method="post">
+            <div class="formWrapperContainer">
+                <div class="formPageWrapper">
+                    <div id="updatePassword-page1" class="formPage">
+                        <div id="updatePassword-page1-section1" class="formSection">
+                            <h1>Please Update Your Password</h1>
+                            <fieldset id="inputarea">
+                                <div class="row">
+                                    <div class="formComponent formComponentSingleLineText">
+                                        <label for="current_password" id="labelcurrent_password" class="formComponentLabel"><span class="accesskey">C</span>urrent Password:</label>
+                                        <input id="current_password" name="current_password" tabindex="1" accesskey="C" type="password" value="">
+                                    </div>
+                                </div>
+                                <div class="row formComponent">
+                                    <div style="width:155px;"><hr/></div>
+                                </div>
+                                <div class="row">
+                                    <div id="updatePassword-wrapper" class="formComponent formComponentSingleLineText">
+                                        <label id="updatePassword-label" class="formComponentLabel" for="updatePassword"><span class="accesskey">C</span>hoose a New Password:</label>
+                                        <input id="updatePassword" name="updatePassword" tabindex="2" accesskey="p" type="password" value="" onkeyup="passwordSecurityStudy.getTip(this, $(this).val(), 'dynamicTextAndStrengthMeter');" >
+                                        <div id="updatePassword-tip" style="display: none;" class="formComponentTip">
+                                            <p>Please enter a password.</p>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="updateConfirmPassword-wrapper" class="formComponent formComponentSingleLineText">
+                                        <label id="lupdateConfirmPassword-label" for="updateConfirmPassword" class="formComponentLabel"><span class="accesskey">C</span>onfirm New Password:</label>
+                                        <input id="updateConfirmPassword" name="updateConfirmPassword" class="formComponentEnterSubmits" tabindex="2" accesskey="p" type="password" value="">
+                                    </div>
+                                </div>
+                                <input type="hidden" name="execution" value="e1s1">
+                                <input type="hidden" name="lt" value="LT-88093-foJ4dpvGiN0AykaB2LCyTMkCpsNOs3">
+                                <input type="hidden" name="_eventId" value="submit">
+                                <input type="submit" class="submit" tabindex="4" value="">
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>        
+        <div id="security" class="content" role="main">
+            <div id="lock"></div>
+            <p><strong>Security:</strong> BYU protects personal information by restricting network access to individuals with an
+                authorized username and password. The username is a unique, personal network identifier called a Net ID
+                and is assigned to each BYU patron.</p>
+
+            <p>For security reasons, please sign out and Exit your web browser when you are finished accessing authenticated services!</p>
+        </div>
+        
+    </div>
+            <script type="text/javascript" language="javascript">
+                $(document).ready(function () { 
+                    passwordAnalyzerObject = new Form('passwordAnalyzer', 
+                        {"options":{
+                                "submitButtonText":"Submit",
+                            },
+                            "formPages":{
+                                "updatePassword-page1":{
+                                    "formSections":{
+                                        "updatePassword-page1-section1":{
+                                            "formComponents":{
+                                                "updatePassword":{
+                                                    "options": {
+                                                        "validationOptions":["required"]
+                                                    },
+                                                    "type":"FormComponentSingleLineText"
+                                                },
+                                                "updateConfirmPassword":{
+                                                    "options" :{
+                                                        "validationOptions":{
+                                                            "matches":"updatePassword",
+                                                            "0":"required"
+                                                        }
+                                                    },
+                                                    "type":"FormComponentSingleLineText"
+                                                },
+                                                "updatePassword-view":{
+                                                    "type":"FormComponentHidden"
+                                                },
+                                                "updatePassword-viewData":{
+                                                    "type":"FormComponentHidden"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ); 
+                });
+            </script>
+        </form>
+<!--            <iframe id="passwordAnalyzer-iframe" name="passwordAnalyzer-iframe" class="formIFrame" frameborder="0" src="/hack_the_password_files/saved_resource.htm"></iframe></form>-->
+</body>
+</html>

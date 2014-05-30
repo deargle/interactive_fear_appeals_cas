@@ -1,0 +1,17 @@
+{
+  "name": "interactive_fear_appeals",
+  "version": "0.0.0",
+  "description": "study for ruling out rival interactive fear appeal hypotheses",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}

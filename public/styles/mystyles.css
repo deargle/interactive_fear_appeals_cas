@@ -1,0 +1,34 @@
+.form .formComponent .formComponentLabel {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+/*.form .formComponent {
+    padding-left: 0em;
+}*/
+
+input {
+    width: 157px;
+    padding-left: .5em;
+}
+
+#updatePassword-tip {
+    font-size: 1.2em;
+}
+
+#updatePassword-tip > div > div.text {
+    width: 400px;
+}
+
+#updatePassword-tip {
+/*    width: 400px;*/
+}
+
+#inputarea {
+    margin-left: 45px;
+}
+
+body {
+    padding-top: 0em;
+    padding-bottom: 0em;
+}
