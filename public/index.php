@@ -1,5 +1,5 @@
 <?php
-require '.\..\vendor\autoload.php';
+require join(DIRECTORY_SEPARATOR, array('.','..','vendor','autoload.php'));
 
 # Session cookie management
 $domain = $_SERVER['HTTP_HOST'];
@@ -22,7 +22,7 @@ if (!isset($_SESSION['treatment'])){
 }
 
 $app = new \Slim\Slim(array(
-    'templates.path' => '.\..\templates',
+    'templates.path' => join(DIRECTORY_SEPARATOR,array('.','..','templates')),
     'view' => new \Slim\Views\Twig(),
     'mode' => 'development'
 ));
