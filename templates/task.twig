@@ -1,0 +1,38 @@
+{% extends 'layouts/study.html' %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        #images img { border: 1px solid #000; }
+        
+        #images {
+                margin-bottom: 200px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <h1 class="page-header" style="margin-bottom: 40px;" >Compare these two pages</h1>
+    <p class="lead">Below are two website designs. Click on the one that you find more visually pleasing.</p>
+</div>
+
+<div class="row" id="images">
+        <div class="col-sm-6">
+                <h2>Site #1</h2>
+                {% set link_prefer_1 = urlFor('task', {'count': count, 'img1': img1.id, 'img2': img2.id, 'preferred' : img1.id }) %}
+                <a href="{{ link_prefer_1 }}"><img src="/task_files{{ img1.path }}" class="col-sm-12" /></a>
+                <div class="text-center">
+                    <a href="{{ link_prefer_1 }}" class="btn btn-info">I prefer Site #1</a>
+                </div>
+        </div>
+        <div class="col-sm-6">
+                <h2>Site #2</h2>
+                {% set link_prefer_2 = urlFor('task', {'count': count, 'img1': img1.id, 'img2': img2.id, 'preferred' : img2.id  }) %}
+                <a href="{{ link_prefer_2 }}"><img src="/task_files{{ img2.path }}" class="col-sm-12" /></a>
+                <div class="text-center">
+                    <a href="{{ link_prefer_2 }}" class="btn btn-info text-center" >I prefer Site #2</a>
+                </div>
+        </div>
+</div>
+{% endblock %}
