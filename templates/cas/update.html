@@ -34,7 +34,13 @@
     <script src="/hack_the_password/phramewrk/scripts/Class.js" type="text/javascript" language="javascript"></script>
     <script src="/hack_the_password/phramewrk/scripts/Form.js" type="text/javascript" language="javascript"></script>
     <script src="/hack_the_password/phramewrk/scripts/Phramewrk.js" type="text/javascript" language="javascript"></script>
-    <script src="/hack_the_password/scripts/PasswordSecurityStudy.js" type="text/javascript" language="javascript"></script>
+    <script type="text/javascript" language="javascript">
+            treatment = {
+                            "type" : "{{ treatment.type }}",
+                            "is_interactive" : "{{ treatment.is_interactive }}"
+                        };
+    </script>
+    <script src="/hack_the_password/scripts/PasswordSecurityStudy-socwall.js" type="text/javascript" language="javascript"></script>
     
     <!-- My Overrides -->
     <link rel="stylesheet" media="all" href="/styles/mystyles.css">
@@ -45,7 +51,7 @@
     <div id="main" class="content" role="main">
 
         <h2><div id="BYU"></div><!--img src="/cas/images/BYUBar.png;jsessionid=AA3FF86C018915170931017688E796C0" alt="BYU Brigham Young University" /--></h2>
-        <form id="updatePasswordForm" class="form" action="https://null" method="post">
+        <form id="updatePasswordForm" class="form" action="{{ link }}" method="POST">
             <div class="formWrapperContainer">
                 <div class="formPageWrapper">
                     <div id="updatePassword-page1" class="formPage">
@@ -64,11 +70,21 @@
                                 <div class="row">
                                     <div id="updatePassword-wrapper" class="formComponent formComponentSingleLineText">
                                         <label id="updatePassword-label" class="formComponentLabel" for="updatePassword"><span class="accesskey">C</span>hoose a New Password:</label>
-                                        <input id="updatePassword" name="updatePassword" tabindex="2" accesskey="p" type="password" value="" onkeyup="passwordSecurityStudy.getTip(this, $(this).val(), 'dynamicTextAndStrengthMeter');" >
+                                        
+                                        {% if treatment.is_interactive %}
+                                            <input id="updatePassword" name="updatePassword" tabindex="2" accesskey="p" type="password" value="" onkeyup="passwordSecurityStudy.getTip(this, $(this).val(), '{{ treatment.type }}' );" >
+                                        {% else %}
+                                            <input id="updatePassword" name="updatePassword" tabindex="2" accesskey="p" type="password" value="" >
+                                        {% endif %}
+                                        
+                                        {% if not (treatment.type == 'control') %}
                                         <div id="updatePassword-tip" style="display: none;" class="formComponentTip">
-                                            <p>Please enter a password.</p>
-                                            <p></p>
+                                            <div id="pssResults">
+                                                <p>Please enter a password.</p>
+                                            </div>
                                         </div>
+                                        {% endif %}
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -77,9 +93,6 @@
                                         <input id="updateConfirmPassword" name="updateConfirmPassword" class="formComponentEnterSubmits" tabindex="2" accesskey="p" type="password" value="">
                                     </div>
                                 </div>
-                                <input type="hidden" name="execution" value="e1s1">
-                                <input type="hidden" name="lt" value="LT-88093-foJ4dpvGiN0AykaB2LCyTMkCpsNOs3">
-                                <input type="hidden" name="_eventId" value="submit">
                                 <input type="submit" class="submit" tabindex="4" value="">
                             </fieldset>
                         </div>
@@ -98,7 +111,7 @@
         
     </div>
             <script type="text/javascript" language="javascript">
-                $(document).ready(function () { 
+                $(document).ready(function () {                    
                     passwordAnalyzerObject = new Form('passwordAnalyzer', 
                         {"options":{
                                 "submitButtonText":"Submit",
