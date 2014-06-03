@@ -56,10 +56,16 @@ if (!isset($_SESSION['treatment'])){
     $_SESSION['treatment'] = get_treatment();
 }
 
+# Set the mode, assume 'development' if no file indicating the contrary
+$mode = null;
+if (!$mode = file_get_contents(join(DIRECTORY_SEPARATOR,array('.','..','.slimmode')))) {
+    $mode = 'development';
+}
+
 $app = new \Slim\Slim(array(
     'templates.path' => join(DIRECTORY_SEPARATOR,array('.','..','templates')),
     'view' => new \Slim\Views\Twig(),
-    'mode' => 'development',
+    'mode' => $mode,
     'study.treatment' => $_SESSION['treatment']
 ));
 
