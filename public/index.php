@@ -58,7 +58,7 @@ if (!isset($_SESSION['treatment'])){
 
 # Set the mode, assume 'development' if no file indicating the contrary
 $mode = null;
-if (!$mode = file_get_contents(join(DIRECTORY_SEPARATOR,array('.','..','.slimmode')))) {
+if (!$mode = trim(file_get_contents(join(DIRECTORY_SEPARATOR,array('.','..','.slimmode'))))) {
     $mode = 'development';
 }
 
