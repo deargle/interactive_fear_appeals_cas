@@ -112,10 +112,10 @@ $app->group('/api', function() use ($app) {
     $app->get('/getTip/password/:password/tipType/:tipType', function($password, $tipType) use ($app) {
         
         $api_endpoint = 'http://passwords.leeds';
-        if ($getenv('api-endpoint') {
-            $api_endpoint = $getenv('api-endpoint')
+        if (getenv('API-ENDPOINT')) {
+            $api_endpoint = getenv('API-ENDPOINT');
         }
-        $url = $api_endpoint . "/password-api.php?password={$password}&tipType={$tipType}";
+        $url = $api_endpoint . "/index.php?password={$password}&tipType={$tipType}";
 
         $ch = curl_init($url);
 
