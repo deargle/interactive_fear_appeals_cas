@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cec1633f7c3922d9fc9cfe0616954ef0",
+    "hash": "bf3cbc4e56b48d287a4ff9cfec64b5b2",
+    "content-hash": "7d0c8e9548908c09a931cac299ccd4e9",
     "packages": [
         {
             "name": "slim/slim",
@@ -51,7 +52,7 @@
                 "rest",
                 "router"
             ],
-            "time": "2017-01-07T12:21:41+00:00"
+            "time": "2017-01-07 12:21:41"
         },
         {
             "name": "slim/views",
@@ -104,7 +105,7 @@
                 "slimphp",
                 "templating"
             ],
-            "time": "2014-12-09T23:48:51+00:00"
+            "time": "2014-12-09 23:48:51"
         },
         {
             "name": "twig/twig",
@@ -169,60 +170,13 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2018-03-20T04:25:58+00:00"
+            "time": "2018-03-20 04:25:58"
         }
     ],
-    "packages-dev": [
-        {
-            "name": "heroku/heroku-buildpack-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "f4f15fda108cdc9af04d380fc4005ebf977e1eb8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/f4f15fda108cdc9af04d380fc4005ebf977e1eb8",
-                "reference": "f4f15fda108cdc9af04d380fc4005ebf977e1eb8",
-                "shasum": ""
-            },
-            "bin": [
-                "bin/heroku-hhvm-apache2",
-                "bin/heroku-hhvm-nginx",
-                "bin/heroku-php-apache2",
-                "bin/heroku-php-nginx"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Zuelke",
-                    "email": "dz@heroku.com"
-                }
-            ],
-            "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
-            "homepage": "https://github.com/heroku/heroku-buildpack-php",
-            "keywords": [
-                "apache",
-                "apache2",
-                "foreman",
-                "heroku",
-                "hhvm",
-                "nginx",
-                "php"
-            ],
-            "time": "2018-03-21T18:15:15+00:00"
-        }
-    ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "heroku/heroku-buildpack-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
