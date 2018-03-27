@@ -110,7 +110,12 @@ $app->configureMode('production', function() use ($app){
 $app->group('/api', function() use ($app) {
     
     $app->get('/getTip/password/:password/tipType/:tipType', function($password, $tipType) use ($app) {
-        $url = "http://security.byu.edu/password-api.php?password={$password}&tipType={$tipType}";
+        
+        $api_endpoint = 'http://passwords.leeds';
+        if ($getenv('api-endpoint') {
+            $api_endpoint = $getenv('api-endpoint')
+        }
+        $url = $api_endpoint . "/password-api.php?password={$password}&tipType={$tipType}";
 
         $ch = curl_init($url);
 
