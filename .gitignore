@@ -1,3 +1,4 @@
 .*
 !/.gitignore
 !/.bowerrc
+vendor/*
